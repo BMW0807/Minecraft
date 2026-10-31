@@ -1,1 +1,8 @@
-.minecraft
+.minecraft/*
+!.minecraft/config/
+!.minecraft/config/**
+__pycache__/
+*.py[cod]
+logs/
+oneconfig/
+/config/
