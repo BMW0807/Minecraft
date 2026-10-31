@@ -1,5 +1,4 @@
-from class_mc import mc
+from gtk_gui import run
 
-mincraft = mc()
 
-print("Uruchamianie Minecrafta...")
+run()

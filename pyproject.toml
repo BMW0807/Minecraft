@@ -4,4 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
     "minecraft-launcher-lib>=8.0",
+    "PyGObject>=3.50",
+    "requests>=2.31",
+    "pygobject-stubs>=2.20.0",
 ]
