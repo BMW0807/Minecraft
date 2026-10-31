@@ -27,7 +27,6 @@ import minecraft_launcher_lib
 MODRINTH_API = "https://api.modrinth.com/v2"
 MINECRAFT_VERSION = "1.21.11"
 MOD_NAMES = (
-    "OneConfig",
     "Fabric API",
     "Fabric Language Kotlin",
     "Compose Multiplatform",
