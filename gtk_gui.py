@@ -46,6 +46,9 @@ MOD_NAMES = (
     "Clumps",
 )
 DEFAULT_RAM_GB = 4
+CUSTOM_MODS = (
+    ("Mod Manager", "mods/mod-manager-1.0.0.jar"),
+)
 
 
 class MinecraftLauncher(Gtk.Window):
@@ -869,10 +872,13 @@ class MinecraftLauncher(Gtk.Window):
                 settings = json.load(marker_file)
         except (FileNotFoundError, OSError, json.JSONDecodeError):
             return False
+        mods_directory = Path(minecraft_directory) / "mods"
+        custom_mod_names = [Path(filename).name for _name, filename in CUSTOM_MODS]
         return settings == {
             "minecraft_version": minecraft_version,
             "mods": self.enabled_mods(),
-        }
+            "custom_mods": custom_mod_names,
+        } and all((mods_directory / filename).is_file() for filename in custom_mod_names)
 
     def enabled_mods(self):
         configured = self.settings.get("enabled_mods")
@@ -884,6 +890,19 @@ class MinecraftLauncher(Gtk.Window):
     def install_mods(self, minecraft_version, minecraft_directory):
         mods_directory = Path(minecraft_directory) / "mods"
         mods_directory.mkdir(parents=True, exist_ok=True)
+        custom_mod_names = []
+        for mod_name, source_name in CUSTOM_MODS:
+            source = Path(__file__).resolve().parent / source_name
+            target = mods_directory / source.name
+            if not source.is_file():
+                raise FileNotFoundError(
+                    f"Brak pliku autorskiego moda „{mod_name}”: {source}"
+                )
+            if not target.is_file():
+                self.set_status(f"Instalowanie autorskiego moda: {mod_name}...")
+                shutil.copy2(source, target)
+            custom_mod_names.append(source.name)
+
         installed_projects = set()
         pending_projects = self.enabled_mods()
         session = requests.Session()
@@ -942,7 +961,11 @@ class MinecraftLauncher(Gtk.Window):
         marker = mods_directory / ".launcher-installed.json"
         marker.write_text(
             json.dumps(
-                {"minecraft_version": minecraft_version, "mods": self.enabled_mods()},
+                {
+                    "minecraft_version": minecraft_version,
+                    "mods": self.enabled_mods(),
+                    "custom_mods": custom_mod_names,
+                },
                 ensure_ascii=False,
                 indent=2,
             )
