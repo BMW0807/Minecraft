@@ -1,0 +1,24 @@
+Wygeneruj zestaw grafik UI dla launchera Minecraft o nazwie „Minecraft Client”.
+
+Styl: nowoczesny launcher gier, panoramiczny interfejs 16:9, ciemny granatowy
+overlay, mocno rozmyte tło, żywe kolory Minecraft, miękkie światło, wysoki
+kontrast, elegancki gamingowy wygląd, bez tekstu, bez logo, bez znaków wodnych.
+Kompozycja tła ma zostawiać ciemniejszy, spokojny obszar po lewej stronie na
+biały tekst wersji i niebieski przycisk „GRAJ”. Po prawej stronie ma być
+dynamiczna scena Minecraft: Steve w locie, różowa owca, slime, TNT, słońce,
+kolorowy biom i efekt głębi ostrości.
+
+Wygeneruj osobne pliki:
+
+1. background.jpg — panoramiczne tło 1920x1080, bez napisów i interfejsu.
+2. card-fabric-1211.jpg — miniatura 640x360 dla profilu Minecraft 1.21.11
+   Fabric, ta sama paleta kolorów i kierunek światła.
+3. card-fabric-1206.jpg — miniatura 640x360 dla profilu Minecraft 1.20.6
+   Fabric, różowy las i postacie Minecraft.
+4. card-forge-1194.jpg — miniatura 640x360 dla profilu Minecraft 1.19.4
+   Forge, przygodowa scena Minecraft z mobami.
+5. logo.png — biały, blokowy napis „MINECRAFT CLIENT”, przezroczyste tło,
+   900x180, gruby cień, czytelny w małym rozmiarze.
+
+Nie dodawaj żadnego tekstu do background.jpg ani miniaturek. Teksty wersji,
+menu i przycisków zostaną dodane przez aplikację.

@@ -1,0 +1,20 @@
+{
+  "configVersion": 9,
+  "safeMode": true,
+  "renderNametagsThroughWalls": true,
+  "blockEntityWhitelist": [],
+  "entityWhitelist": [],
+  "tracingDistance": 128,
+  "debugMode": false,
+  "sleepDelay": 10,
+  "hitboxLimit": 50,
+  "captureRate": 5,
+  "tickCulling": true,
+  "tickCullingWhitelist": [],
+  "disableF3": false,
+  "skipEntityCulling": false,
+  "skipBlockEntityCulling": false,
+  "blockEntityFrustumCulling": true,
+  "forceDisplayCulling": false,
+  "solidLeaves": false
+}
